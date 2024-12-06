@@ -80,7 +80,9 @@ vi reorder(vi& l, unordered_map<int, vi>& adjacency_list) {
         }
     }
 
-    vi sorted;
+    int idx = l.size()-1;
+    vi sorted(l.size());
+
     while (!q.empty()) {
         int node = q.front();
         q.pop();
@@ -90,7 +92,8 @@ vi reorder(vi& l, unordered_map<int, vi>& adjacency_list) {
                 q.push(child);
             }
         }
-        sorted.push_back(node);
+        sorted[idx] = (node);
+        idx--;
     }
 
     return sorted;
